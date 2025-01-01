@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-900 text-white p-4">
+    <h1 class="text-3xl font-bold">Employee Management</h1>
+
+    <div class="mt-4 w-full md:max-w-[50%] flex justify-between">
+        <input type="text" class="bg-gray-800 border-gray-700 border p-2 rounded-md w-[70%]" id="searchInput" name="searchInput" placeholder="Search by name">
+        <select name="searchBy" id="searchBy" class="p-2 bg-gray-800 rounded-md border-gray-700 border w-[25%]">
+            <option value="name">Name</option>
+        </select>
+    </div>
+
+    <div>
+        <table class="mt-4 w-full">
+            <thead>
+                <tr>
+                    <th class="text-left p-2">Id</th>
+                    <th class="text-left p-2">FullName</th>
+                    <th class="text-left p-2">Role</th>
+                    <th class="text-left p-2">Projects</th>
+                    <th class="text-left p-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+            <!--Example data-->
+                <tr>
+                    <td class="p-2">1</td>
+                    <td class="p-2">John Doe</td>
+                    <td class="p-2">Software Engineer</td>
+                    <td class="p-2">Project A, Project B</td>
+                    <td class="p-2">Edit | Delete</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <button id="addEmployeeButton" class="mt-4 bg-gray-800 hover:bg-gray-700 transition-colors text-white font-bold py-2 px-4 rounded">Add Employee</button>
+    </div>
+    <script src="scripts/employee.js" type="module"></script>
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>

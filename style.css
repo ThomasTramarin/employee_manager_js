@@ -1,0 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+table, td, th, tr {
+  border-collapse: collapse;
+  border: 1px solid #c8c8c8;
+}
