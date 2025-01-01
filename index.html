@@ -13,7 +13,8 @@
     <h1 class="text-3xl font-bold">Employee Management</h1>
 
     <div class="mt-4 w-full md:max-w-[50%] flex justify-between">
-        <input type="text" class="bg-gray-800 border-gray-700 border p-2 rounded-md w-[70%]" id="searchInput" name="searchInput" placeholder="Search by name">
+        <input type="text" class="bg-gray-800 border-gray-700 border p-2 rounded-md w-[70%]" id="searchInput"
+            name="searchInput" placeholder="Search by name">
         <select name="searchBy" id="searchBy" class="p-2 bg-gray-800 rounded-md border-gray-700 border w-[25%]">
             <option value="name">Name</option>
         </select>
@@ -31,7 +32,7 @@
                 </tr>
             </thead>
             <tbody id="employeeTableBody">
-            <!--Example data-->
+                <!--Example data-->
                 <tr>
                     <td class="p-2">1</td>
                     <td class="p-2">John Doe</td>
@@ -44,10 +45,21 @@
     </div>
 
     <div>
-        <button id="addEmployeeButton" class="mt-4 bg-gray-800 hover:bg-gray-700 transition-colors text-white font-bold py-2 px-4 rounded">Add Employee</button>
+        <button id="addEmployeeButton"
+            class="mt-4 bg-gray-800 hover:bg-gray-700 transition-colors text-white font-bold py-2 px-4 rounded">Add
+            Employee</button>
     </div>
+
+
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-800 rounded-xl">
+        <h2 class="text-2xl font-medium p-4">Add Employee</h2>
+        
+    </div>
+
     <script src="scripts/employee.js" type="module"></script>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/localStorage.js" type="module"></script>
+    <script src="scripts/dom.js" type="module"></script>
+    <script src="scripts/script.js" type="module"></script>
 </body>
 
 </html>
