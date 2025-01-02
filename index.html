@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gray-900 text-white p-4">
-    <h1 class="text-3xl font-bold">Employee Management</h1>
+<body class="bg-gray-900 text-gray-100 p-4">
+    <h1 class="text-3xl font-bold text-cyan-400">Employee Management</h1>
 
     <div class="mt-4 w-full md:max-w-[50%] flex justify-between">
-        <input type="text" class="bg-gray-800 border-gray-700 border p-2 rounded-md w-[70%]" id="searchInput"
+        <input type="text" class="bg-gray-800 border-gray-600 border p-2 rounded-md w-[70%] text-white" id="searchInput"
             name="searchInput" placeholder="Search by name">
-        <select name="searchBy" id="searchBy" class="p-2 bg-gray-800 rounded-md border-gray-700 border w-[25%]">
+        <select name="searchBy" id="searchBy"
+            class="p-2 bg-gray-800 text-white rounded-md border-gray-600 border w-[25%]">
             <option value="name">Name</option>
         </select>
     </div>
@@ -23,43 +24,66 @@
     <div>
         <table class="mt-4 w-full">
             <thead>
-                <tr>
+                <tr class="bg-gray-700 text-cyan-400">
                     <th class="text-left p-2">Id</th>
-                    <th class="text-left p-2">FullName</th>
+                    <th class="text-left p-2">Full Name</th>
                     <th class="text-left p-2">Role</th>
                     <th class="text-left p-2">Projects</th>
                     <th class="text-left p-2">Actions</th>
                 </tr>
             </thead>
-            <tbody id="employeeTableBody">
-                <!--Example data-->
-                <tr>
-                    <td class="p-2">1</td>
-                    <td class="p-2">John Doe</td>
-                    <td class="p-2">Software Engineer</td>
-                    <td class="p-2">Project A, Project B</td>
-                    <td class="p-2">Edit | Delete</td>
-                </tr>
+            <tbody id="employeeTableBody" class="bg-gray-800 text-white">
             </tbody>
         </table>
     </div>
 
     <div>
         <button id="addEmployeeButton"
-            class="mt-4 bg-gray-800 hover:bg-gray-700 transition-colors text-white font-bold py-2 px-4 rounded">Add
+            class="mt-4 bg-cyan-500 hover:bg-cyan-400 transition-colors text-white font-bold py-2 px-4 rounded">Add
             Employee</button>
     </div>
 
-
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-zinc-800 rounded-xl">
-        <h2 class="text-2xl font-medium p-4">Add Employee</h2>
-        
+    <!--Add Employee Form Modal-->
+    <div id="addEmployeeModal"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-xl w-80 md:w-full max-w-lg hidden">
+        <div class="flex justify-between items-center pr-4">
+            <h2 class="text-2xl font-medium p-4 text-cyan-400">Add Employee</h2>
+            <button id="closeAddEmployeeModalButton">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <form id="addEmployeeForm">
+            <div class="p-4">
+                <label for="fullName" class="block text-gray-300">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="John Doe"
+                    class="p-2 bg-gray-700 rounded-md border-gray-600 border w-full text-white">
+            </div>
+            <div class="p-4">
+                <label for="role" class="block text-gray-300">Role</label>
+                <input type="text" id="role" name="role" placeholder="Software Engineer"
+                    class="p-2 bg-gray-700 rounded-md border-gray-600 border w-full text-white">
+            </div>
+            <div class="p-4">
+                <label for="projects" class="block text-gray-300">Projects</label>
+                <input type="text" id="projects" name="projects" placeholder="Projects separated by commas"
+                    class="p-2 bg-gray-700 rounded-md border-gray-600 border w-full text-white">
+            </div>
+            <div class="p-4 flex justify-end">
+                <button type="submit"
+                    class="bg-cyan-500 hover:bg-cyan-400 transition-colors text-white font-bold py-2 px-4 rounded-md">Save</button>
+            </div>
+        </form>
     </div>
 
     <script src="scripts/employee.js" type="module"></script>
     <script src="scripts/localStorage.js" type="module"></script>
     <script src="scripts/dom.js" type="module"></script>
+    <script src="scripts/form.js" type="module"></script>
     <script src="scripts/script.js" type="module"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>

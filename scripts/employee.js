@@ -4,7 +4,7 @@ export class Employee {
     this.fullName = fullName;
     this.role = role;
     this.projects = projects;
-    this.id = Employee.id++;
+    this.id = this.id = Employee.getNextId();
   }
 
   getEmployeeData() {
@@ -15,5 +15,15 @@ export class Employee {
       projects: this.projects,
     };
   }
-}
 
+  static getNextId() {
+    let currentId = localStorage.getItem("currentEmployeeId");
+    if (!currentId) {
+      currentId = 1;
+    } else {
+      currentId = parseInt(currentId, 10) + 1; 
+    }
+    localStorage.setItem("currentEmployeeId", currentId);
+    return currentId;
+  }
+}
