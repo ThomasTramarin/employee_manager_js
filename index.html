@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gray-900 text-gray-100 p-4">
+<body class="p-4 text-gray-100 bg-gray-900">
     <h1 class="text-3xl font-bold text-cyan-400">Employee Management</h1>
 
     <div class="mt-4 w-full md:max-w-[50%] flex justify-between">
@@ -22,32 +22,32 @@
     </div>
 
     <div>
-        <table class="mt-4 w-full">
+        <table class="w-full mt-4">
             <thead>
                 <tr class="bg-gray-700 text-cyan-400">
-                    <th class="text-left p-2">Id</th>
-                    <th class="text-left p-2">Full Name</th>
-                    <th class="text-left p-2">Role</th>
-                    <th class="text-left p-2">Projects</th>
-                    <th class="text-left p-2">Actions</th>
+                    <th class="p-2 text-left">Id</th>
+                    <th class="p-2 text-left">Full Name</th>
+                    <th class="p-2 text-left">Role</th>
+                    <th class="p-2 text-left">Projects</th>
+                    <th class="p-2 text-left">Actions</th>
                 </tr>
             </thead>
-            <tbody id="employeeTableBody" class="bg-gray-800 text-white">
+            <tbody id="employeeTableBody" class="text-white bg-gray-800">
             </tbody>
         </table>
     </div>
 
     <div>
         <button id="addEmployeeButton"
-            class="mt-4 bg-cyan-500 hover:bg-cyan-400 transition-colors text-white font-bold py-2 px-4 rounded">Add
+            class="px-4 py-2 mt-4 font-bold text-white transition-colors rounded bg-cyan-500 hover:bg-cyan-400">Add
             Employee</button>
     </div>
 
     <!--Add Employee Form Modal-->
     <div id="addEmployeeModal"
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-xl w-80 md:w-full max-w-lg hidden">
-        <div class="flex justify-between items-center pr-4">
-            <h2 class="text-2xl font-medium p-4 text-cyan-400">Add Employee</h2>
+        class="absolute z-20 hidden max-w-lg -translate-x-1/2 -translate-y-1/2 bg-gray-800 border border-gray-700 top-1/2 left-1/2 rounded-xl w-80 md:w-full">
+        <div class="flex items-center justify-between pr-4">
+            <h2 class="p-4 text-2xl font-medium text-cyan-400">Add Employee</h2>
             <button id="closeAddEmployeeModalButton">
                 <i data-lucide="x"></i>
             </button>
@@ -55,25 +55,62 @@
         <form id="addEmployeeForm">
             <div class="p-4">
                 <label for="fullName" class="block text-gray-300">Full Name</label>
-                <input type="text" id="fullName" name="fullName" placeholder="John Doe"
-                    class="p-2 bg-gray-700 rounded-md border-gray-600 border w-full text-white">
+                <input type="text" id="fullNameInput" name="fullNameInput" placeholder="John Doe"
+                    class="w-full p-2 text-white bg-gray-700 border border-gray-600 rounded-md">
             </div>
             <div class="p-4">
                 <label for="role" class="block text-gray-300">Role</label>
-                <input type="text" id="role" name="role" placeholder="Software Engineer"
-                    class="p-2 bg-gray-700 rounded-md border-gray-600 border w-full text-white">
+                <input type="text" id="roleInput" name="roleInput" placeholder="Software Engineer"
+                    class="w-full p-2 text-white bg-gray-700 border border-gray-600 rounded-md">
             </div>
             <div class="p-4">
                 <label for="projects" class="block text-gray-300">Projects</label>
-                <input type="text" id="projects" name="projects" placeholder="Projects separated by commas"
-                    class="p-2 bg-gray-700 rounded-md border-gray-600 border w-full text-white">
+                <input type="text" id="projectsInput" name="projectsInput" placeholder="Projects separated by commas"
+                    class="w-full p-2 text-white bg-gray-700 border border-gray-600 rounded-md">
             </div>
-            <div class="p-4 flex justify-end">
+            <div class="flex justify-end p-4">
                 <button type="submit"
-                    class="bg-cyan-500 hover:bg-cyan-400 transition-colors text-white font-bold py-2 px-4 rounded-md">Save</button>
+                    class="px-4 py-2 font-bold text-white transition-colors rounded-md bg-cyan-500 hover:bg-cyan-400">Save</button>
             </div>
         </form>
     </div>
+
+    <!-- More Details Modal -->
+    <div id="employeeDetailsModal"
+        class="absolute z-20 hidden max-w-lg -translate-x-1/2 -translate-y-1/2 bg-gray-800 border border-gray-700 top-1/2 left-1/2 rounded-xl w-80 md:w-full">
+        <div class="flex items-center justify-between pr-4">
+            <h2 class="p-4 text-2xl font-medium text-cyan-400">More details</h2>
+            <button id="closeEmployeeDetailsModalButton">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <p class="p-4">Id: <span id="employeeIdDetails"></span></p>
+        <form id="employeeDetailsForm">
+            <div class="p-4">
+                <label for="fullName" class="block text-gray-300">Full Name</label>
+                <input type="text" id="fullNameInputDetails" name="fullNameInputDetails" placeholder="John Doe"
+                    class="w-full p-2 text-white bg-gray-700 border border-gray-600 rounded-md">
+            </div>
+            <div class="p-4">
+                <label for="role" class="block text-gray-300">Role</label>
+                <input type="text" id="roleInputDetails" name="roleInputDetails" placeholder="Software Engineer"
+                    class="w-full p-2 text-white bg-gray-700 border border-gray-600 rounded-md">
+            </div>
+            <div class="p-4">
+                <label for="projects" class="block text-gray-300">Projects</label>
+                <input type="text" id="projectsInputDetails" name="projectsInputDetails"
+                    placeholder="Projects separated by commas"
+                    class="w-full p-2 text-white bg-gray-700 border border-gray-600 rounded-md">
+            </div>
+            <div class="flex justify-end p-4">
+                <button type="submit"
+                    class="px-4 py-2 font-bold text-white transition-colors rounded-md bg-cyan-500 hover:bg-cyan-400">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <!--Overlay-->
+    <div id="overlay" class="fixed top-0 right-0 z-10 hidden w-full h-full bg-gray-900 bg-opacity-50"></div>
 
     <script src="scripts/employee.js" type="module"></script>
     <script src="scripts/localStorage.js" type="module"></script>
