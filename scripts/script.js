@@ -3,7 +3,7 @@ import {
   renderAddEmployeeModal,
   renderEmployeeData,
 } from "./dom.js";
-import { handleAddEmployeeFormSubmit } from "./form.js";
+import { handleAddEmployeeFormSubmit, handleModifyEmployeeFormSubmit } from "./form.js";
 import { getEmployeeDataFromLocalStorage } from "./localStorage.js";
 
 export const employeeTableBody = document.getElementById("employeeTableBody");
@@ -26,7 +26,7 @@ export const employeeIdDetails = document.getElementById("employeeIdDetails");
 export const fullNameInputDetails = document.getElementById("fullNameInputDetails");
 export const roleInputDetails = document.getElementById("roleInputDetails");
 export const projectsInputDetails = document.getElementById("projectsInputDetails");
-
+const employeeDetailsForm = document.getElementById("employeeDetailsForm");
 
 document.addEventListener("DOMContentLoaded", domLoaded);
 
@@ -40,4 +40,7 @@ function domLoaded() {
 
   // Event listeners for Add Employee Form
   addEmployeeForm.addEventListener("submit", handleAddEmployeeFormSubmit);
+
+  // Event listeners for More Details Modal
+  employeeDetailsForm.addEventListener("submit", handleModifyEmployeeFormSubmit);
 }

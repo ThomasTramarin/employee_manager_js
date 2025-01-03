@@ -57,7 +57,7 @@ function renderEmployeeDetailsModal(e){
     closeEmployeeDetailsModalButton.addEventListener("click", closeEmployeeDetailsModal)
 }
 
-function closeEmployeeDetailsModal(){
+export function closeEmployeeDetailsModal(){
     employeeDetailsModal.classList.add("hidden");
     overlay.classList.add("hidden");
 
@@ -65,5 +65,4 @@ function closeEmployeeDetailsModal(){
     fullNameInputDetails.value = "";
     roleInputDetails.value = "";
     projectsInputDetails.value = "";
-    idInputDetails.value = "";
 }

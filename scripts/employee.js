@@ -1,10 +1,11 @@
 export class Employee {
   static id = 1;
+
   constructor(fullName, role, projects) {
     this.fullName = fullName;
     this.role = role;
     this.projects = projects;
-    this.id = this.id = Employee.getNextId();
+    this.id = Employee.id; 
   }
 
   getEmployeeData() {
@@ -21,9 +22,15 @@ export class Employee {
     if (!currentId) {
       currentId = 1;
     } else {
-      currentId = parseInt(currentId, 10) + 1; 
+      currentId = parseInt(currentId, 10); 
     }
-    localStorage.setItem("currentEmployeeId", currentId);
     return currentId;
+  }
+
+  static incrementId() {
+    let currentId = parseInt(localStorage.getItem("currentEmployeeId") || "1", 10);
+    currentId += 1;
+    localStorage.setItem("currentEmployeeId", currentId);
+    Employee.id = currentId; 
   }
 }
