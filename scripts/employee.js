@@ -1,6 +1,6 @@
 import { closeEmployeeDetailsModal, renderEmployeeData } from "./dom.js";
 import { saveEmployeeDataToLocalStorage } from "./localStorage.js";
-import { employeesData } from "./script.js";
+import { employeesData, searchBy, searchInput } from "./script.js";
 
 export class Employee {
   static id = 1;
@@ -60,4 +60,23 @@ export function deleteEmployee() {
   } else {
     alert("Employee not found.");
   }
+}
+
+export function filterEmployees(e) {
+  let plainText = searchInput.value.toLowerCase();
+
+  const filterBy = searchBy.value;
+
+  const filteredEmployees = employeesData.filter((employee) => {
+    if (filterBy === "name") {
+      return employee.fullName.toLowerCase().includes(plainText);
+    } else if (filterBy === "role") {
+      return employee.role.toLowerCase().includes(plainText);
+    } else if (filterBy === "project") {
+      return employee.projects.join(",").toLowerCase().includes(plainText);
+    }
+    return false;
+  });
+
+  renderEmployeeData(filteredEmployees);
 }
